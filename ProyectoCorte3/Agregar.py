@@ -16,10 +16,10 @@ class Principal(PyQT.QMainWindow):
         self.mas.clicked.connect(lambda: self.buscador())
 
     def buscador(self):
-        uic.loadUi("agregar.ui",self)
+        uic.loadUi("busquedaamigos.ui",self)
         self.show()
 
-        db = sqlite3.connect("busqueda_de_datos.s3db")
+        db = sqlite3.connect("Bseusuarios.s3db")
         db.row_factory=sqlite3.Row
         cursor=db.cursor()
         consulta="select * from Personas WHERE profesion = '" + profesion +"'"
@@ -29,9 +29,17 @@ class Principal(PyQT.QMainWindow):
         cursor.close()
         db.close()
         return resultado
-
-
-
+    
+    def agregar(self):
+        db = sqlite3.connect("Bseusuarios.s3db")
+        db.row_factory = sqlite3.Row
+        cursor = db.cursor()
+        consulta = "insert into Personas values ('"+ profesion +"','" + nombre + "'," + str(edad) +","+str(documento)+",'"perfil"')"
+        cursor.execute(consulta)
+        db.commit()
+        cursor.close()
+        db.close()
+        return "1"
 
     def abrir(self):
         Vista()
