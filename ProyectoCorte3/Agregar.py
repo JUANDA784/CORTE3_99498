@@ -8,8 +8,10 @@ import sqlite3
 
 class Principal(QMainWindow):
     def __init__(self): 
-        super().__init__()
+        super(Principal, self).__init__()
         loadUi('dinamica.ui',self)
+
+        self.conexion = sqlite3.connect('Bseusuarios.s3db')
 
         # Barra de titulo
         self.bt_menu.clicked.connect(self.mover_menu)
@@ -27,49 +29,75 @@ class Principal(QMainWindow):
         self.bt_mas.clicked.connect(lambda: self.stackedWiget.setCurrentWidget(self.page_agregar))
         self.bt_inicio.clicked.connect(lambda: self.stackedWiget.setCurrentWidget(self.page_perfil))
 
+        # Metodo para mover el menu lateral izquiedo
+    def mover_menu(self):
+        if True:
+            width = self.frame_menu.width()
+            normal = 0
+            if width == 0:
+                extender = 200
+            else:
+                extender = normal
+            self.animacion.QPropertyAnimation(self.frame_menu, b'minimumWidth')
+            self.animacion.setDuration(300)
+            self.animacion.setStartValue(width)
+            self.animacion.setEndValue(extender)
+            self.animacion.setEasingCurve(QtCore.QEasingCurve.InOutQuart)
+            self.animacion.start()
 
-
-    def initGui(self):
-        uic.loadUi("dinamica.ui",self)
-        self.show()
-        
-        self.mas.clicked.connect(lambda: self.buscador())
-
-    def buscador(self):
-        uic.loadUi("busquedaamigos.ui",self)
-        self.show()
-
-        db = sqlite3.connect("Bseusuarios.s3db")
-        db.row_factory=sqlite3.Row
-        cursor=db.cursor()
-        consulta="select * from Personas WHERE profesion = '" + profesion +"'"
-        cursor.execute(consulta)
-        resultado=cursor.fetchone()
-        print(list(resultado))
+    def search_datos(self):
+        Profesion_a_buscar = self.buscar_profesion.text()
+        #Obtener datos SQLite3
+        cursor = self.conexion.cursor()
+        cursor.execute("SELECT profesion, nombre, areatrab WHERE Datos = '{}' ".format(Profesion_a_buscar))
+        profesiones = cursor.fetchall()
         cursor.close()
-        db.close()
-        return resultado
-    
-    def agregar(self):
-        db = sqlite3.connect("Bseusuarios.s3db")
-        db.row_factory = sqlite3.Row
-        cursor = db.cursor()
-        consulta = "insert into Personas values ('"+ profesion +"','" + nombre + "'," + str(edad) +","+str(documento)+",'"perfil"')"
-        cursor.execute(consulta)
-        db.commit()
-        cursor.close()
-        db.close()
-        return "1"
+        if profesiones:
+            self.profesion.setText(profesiones[0][1])
+            self.nombre.setText(profesiones[0][2])
+            self.areatrab.setText(profesiones[0][2])
 
-    def abrir(self):
-        Vista()
-        self.close()
+
+
+
+
+
+    #def buscador(self):
+    #    uic.loadUi("busquedaamigos.ui",self)
+    #    self.show()
+#
+    #    db = sqlite3.connect("Bseusuarios.s3db")
+    #    db.row_factory=sqlite3.Row
+    #    cursor=db.cursor()
+    #    consulta="select * from Personas WHERE profesion = '" + profesion +"'"
+    #    cursor.execute(consulta)
+    #    resultado=cursor.fetchone()
+    #    print(list(resultado))
+    #    cursor.close()
+    #    db.close()
+    #    return resultado
+    #
+    #def agregar(self):
+    #    db = sqlite3.connect("Bseusuarios.s3db")
+    #    db.row_factory = sqlite3.Row
+    #    cursor = db.cursor()
+    #    consulta = "insert into Personas values ('"+ profesion +"','" + nombre + "'," + str(edad) +","+str(documento)+",'"perfil"')"
+    #    cursor.execute(consulta)
+    #    db.commit()
+    #    cursor.close()
+    #    db.close()
+    #    return "1"
+#
+    #def abrir(self):
+    #    Vista()
+    #    self.close()
 
 
 def main():
-    app = QApplication([])
-    window = Principal()
+    app = QApplication(sys.argv)
+    my_app = Principal()
+    my_app.show()
     sys.exit(app.exec_())
-
+    
 if __name__=="__main__":
     main()
