@@ -1,16 +1,36 @@
 import sys
-import PyQt5.QtWidgets as PyQT
-from PyQt5 import uic
+from PyQt5.QtWidgets import QApplication, QMainWindow, QHeaderView 
+from PyQt5.QtCore import QPropertyAnimation, QEasingCurve
+from PyQt5 import QtCore, QtWidgets
+from PyQt5.uic import loadUi
 import sqlite3
 
 
-class Principal(PyQT.QMainWindow):
+class Principal(QMainWindow):
     def __init__(self): 
         super().__init__()
-        self.initGui()
-    
+        loadUi('dinamica.ui',self)
+
+        # Barra de titulo
+        self.bt_menu.clicked.connect(self.mover_menu)
+        self.bt_perfil.clicked.connect(self.abrir_pestaña_superior)
+        self.bt_inicio.clicked.connect(self.volver_al_inicio)
+
+        # Botones
+        self.bt_mas.clicked.connect(self.abrir_pestaña_busqueda)
+        self.bt_search.clicked.connect(self.busqueda)
+        self.bt_actualizar.clicked.connect(self.refrescar)
+        self.bt_agregar.clicked.connect(self.agregar_amigos)
+        self.bt_amigos.clicked.connect(self.ver_perfiles)
+
+        # Coneccion botones
+        self.bt_mas.clicked.connect(lambda: self.stackedWiget.setCurrentWidget(self.page_agregar))
+        self.bt_inicio.clicked.connect(lambda: self.stackedWiget.setCurrentWidget(self.page_perfil))
+
+
+
     def initGui(self):
-        uic.loadUi("agregar.ui",self)
+        uic.loadUi("dinamica.ui",self)
         self.show()
         
         self.mas.clicked.connect(lambda: self.buscador())
@@ -47,8 +67,8 @@ class Principal(PyQT.QMainWindow):
 
 
 def main():
-    app=PyQT.QApplication([])
-    window= Principal()
+    app = QApplication([])
+    window = Principal()
     sys.exit(app.exec_())
 
 if __name__=="__main__":
