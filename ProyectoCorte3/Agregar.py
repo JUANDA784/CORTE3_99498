@@ -1,6 +1,6 @@
 import sys
 import os
-from PyQt5.QtWidgets import QApplication, QMainWindow, QHeaderView 
+from PyQt5.QtWidgets import QApplication, QMainWindow, QHeaderView, QLabel
 from PyQt5.QtCore import QPoint, QPropertyAnimation, QEasingCurve
 from PyQt5 import QtCore, QtWidgets
 from PyQt5.QtWidgets import QFileDialog
@@ -15,9 +15,6 @@ class Principal(QMainWindow):
         loadUi('interfazdinamica.ui',self)
 
         self.conexion = sqlite3.connect('Bseusuarios.s3db')
-
-        self.show()
-
         # Barra de titulo
         self.click_posicion = QPoint()
         #self.bt_perfil.clicked.connect(self.abrir_pestaña_superior)
