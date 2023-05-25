@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1025</width>
-    <height>745</height>
+    <width>1039</width>
+    <height>744</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -60,6 +60,8 @@ border-radius:20px;
 QPushButton:hover{
 background-color:rgb(61, 61, 61);
 border-radius:20px;
+color: rgb(255, 255, 255);
+font: 20pt &quot;Bahnschrift SemiLight&quot;;
 }</string>
          </property>
          <property name="frameShape">
@@ -82,29 +84,54 @@ border-radius:20px;
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>../../Downloads/lineas.jpeg</normaloff>../../Downloads/lineas.jpeg</iconset>
+              <normaloff>../../Downloads/menu.svg</normaloff>../../Downloads/menu.svg</iconset>
             </property>
             <property name="iconSize">
              <size>
-              <width>30</width>
-              <height>30</height>
+              <width>40</width>
+              <height>40</height>
              </size>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="bt_inicio">
             <property name="minimumSize">
              <size>
               <width>100</width>
               <height>0</height>
              </size>
             </property>
+            <property name="font">
+             <font>
+              <family>Bahnschrift SemiLight</family>
+              <pointsize>12</pointsize>
+              <weight>3</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
             <property name="styleSheet">
-             <string notr="true">font: 25 10pt &quot;Bahnschrift SemiLight&quot;;</string>
+             <string notr="true">QPushButton{
+background-color: white;
+border-radius: 10px;
+font: 30 12pt &quot;Bahnschrift SemiLight&quot;;
+}
+
+QPushButton:hover{
+background-color: rgb(61, 61, 61);
+border-radius: 10px;
+font: 30 11pt &quot;Bahnschrift SemiLight&quot;;
+}</string>
             </property>
             <property name="text">
              <string>INICIO</string>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>20</width>
+              <height>20</height>
+             </size>
             </property>
            </widget>
           </item>
@@ -159,6 +186,9 @@ border-radius:20px;
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <property name="rightMargin">
+           <number>11</number>
+          </property>
           <item>
            <widget class="QFrame" name="frame_menu">
             <property name="minimumSize">
@@ -293,22 +323,33 @@ p, li { white-space: pre-wrap; }
               <property name="geometry">
                <rect>
                 <x>140</x>
-                <y>10</y>
-                <width>51</width>
-                <height>51</height>
+                <y>20</y>
+                <width>41</width>
+                <height>41</height>
                </rect>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton{
+background-color: white;
+border-radius: 20px;
+}
+
+QPushButton:hover{
+background-color: rgb(61, 61, 61);
+border-radius: 20px;
+}</string>
               </property>
               <property name="text">
                <string/>
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>../../Downloads/suma.jpeg</normaloff>../../Downloads/suma.jpeg</iconset>
+                <normaloff>../../Downloads/plus-circle.svg</normaloff>../../Downloads/plus-circle.svg</iconset>
               </property>
               <property name="iconSize">
                <size>
-                <width>40</width>
-                <height>40</height>
+                <width>35</width>
+                <height>35</height>
                </size>
               </property>
              </widget>
@@ -354,11 +395,14 @@ border-radius: 5px;
 font: 10pt &quot;Bahnschrift SemiLight&quot;;
 }</string>
                </property>
+               <property name="frameShape">
+                <enum>QFrame::NoFrame</enum>
+               </property>
                <property name="currentIndex">
-                <number>1</number>
+                <number>0</number>
                </property>
                <widget class="QWidget" name="page_perfil">
-                <widget class="QPushButton" name="pushButton_3">
+                <widget class="QPushButton" name="bt_actualizar">
                  <property name="geometry">
                   <rect>
                    <x>572</x>
@@ -384,7 +428,10 @@ font: 25 10pt &quot;Bahnschrift SemiLight&quot;;
 QPushButton:hover{
 background-color:rgb(61, 61, 61);
 border-radius:20px;
-}</string>
+color: rgb(255, 255, 255);
+font: 25 9pt &quot;Bahnschrift SemiLight&quot;;
+}
+</string>
                  </property>
                  <property name="text">
                   <string>ACTUALIZAR</string>
@@ -410,7 +457,7 @@ border-radius:20px;
                    </size>
                   </property>
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string/>
                   </property>
                  </widget>
                  <widget class="QLabel" name="label_4">
@@ -421,7 +468,7 @@ border-radius:20px;
                    </size>
                   </property>
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string/>
                   </property>
                  </widget>
                  <widget class="QLabel" name="label_6">
@@ -483,12 +530,18 @@ border-radius:20px;
                  </property>
                  <widget class="QLabel" name="label_2">
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string/>
+                  </property>
+                  <property name="pixmap">
+                   <pixmap>../../Downloads/Perfil.jpeg</pixmap>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignCenter</set>
                   </property>
                  </widget>
                  <widget class="QLabel" name="label_3">
                   <property name="text">
-                   <string>TextLabel</string>
+                   <string/>
                   </property>
                  </widget>
                 </widget>
@@ -533,7 +586,7 @@ font: 25 10pt &quot;Bahnschrift SemiLight&quot;;
 </string>
                   </property>
                  </widget>
-                 <widget class="QPushButton" name="pushButton_4">
+                 <widget class="QPushButton" name="bt_search">
                   <property name="styleSheet">
                    <string notr="true">QPushButton{
 background-color: rgb(255, 255, 255);
@@ -552,7 +605,7 @@ border-radius:20px;
                   </property>
                   <property name="icon">
                    <iconset>
-                    <normaloff>../../Pictures/busqueda.jpg</normaloff>../../Pictures/busqueda.jpg</iconset>
+                    <normaloff>../../Downloads/search.svg</normaloff>../../Downloads/search.svg</iconset>
                   </property>
                   <property name="iconSize">
                    <size>
@@ -566,6 +619,166 @@ border-radius:20px;
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignTop">
+     <widget class="QWidget" name="profile" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>100</width>
+        <height>0</height>
+       </size>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="frame_4">
+         <property name="styleSheet">
+          <string notr="true">
+QFrame{
+background-color: rgb(199, 199, 199);
+}
+
+QPushButton{
+background-color: rgb(199, 199, 199);
+border-radius: 5px;
+color: rgb(0, 0, 0);
+font: 12pt &quot;Bahnschrift SemiLight&quot;;
+}
+
+QPushButton:hover{
+background-color: rgb(61, 61, 61);
+border-radius: 5px;
+color: rgb(255, 255, 255);
+font: 11pt &quot;Bahnschrift SemiLight&quot;;
+}</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item alignment="Qt::AlignTop">
+           <widget class="QLabel" name="label_9">
+            <property name="font">
+             <font>
+              <family>Bahnschrift SemiLight</family>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>NAME</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignTop">
+           <widget class="QLabel" name="label_11">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>8</pointsize>
+              <weight>50</weight>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Admin</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item alignment="Qt::AlignHCenter">
+           <widget class="QLabel" name="label_10">
+            <property name="minimumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+            <property name="pixmap">
+             <pixmap>../../Downloads/user.svg</pixmap>
+            </property>
+            <property name="scaledContents">
+             <bool>true</bool>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Edit</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../Downloads/edit (3).svg</normaloff>../../Downloads/edit (3).svg</iconset>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="font">
+             <font>
+              <family>Bahnschrift SemiLight</family>
+              <pointsize>12</pointsize>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text">
+             <string>Logout</string>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>../../Downloads/log-out.svg</normaloff>../../Downloads/log-out.svg</iconset>
+            </property>
            </widget>
           </item>
          </layout>
