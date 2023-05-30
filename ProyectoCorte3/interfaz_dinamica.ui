@@ -237,7 +237,7 @@ border: 2px solid  rgb(126, 126, 126);
 QPushButton{
 width: 201px;
 height: 58px;
-border-radius:20px;
+border-radius:15px;
 background-color: white;
 color: rgb(0, 0, 0);
 font: 10pt &quot;Bahnschrift SemiLight&quot;;
@@ -246,7 +246,7 @@ font: 10pt &quot;Bahnschrift SemiLight&quot;;
 QPushButton:hover{
 width: 200px;
 height: 57px;
-border-radius:20px;
+border-radius:15px;
 background-color: rgb(61, 61, 61);
 color: rgb(255, 255, 255);
 font: 9pt &quot;Bahnschrift SemiLight&quot;;
@@ -504,7 +504,7 @@ font: 80 26pt &quot;Bahnschrift&quot;;</string>
                      <property name="minimumSize">
                       <size>
                        <width>200</width>
-                       <height>0</height>
+                       <height>40</height>
                       </size>
                      </property>
                      <property name="styleSheet">
@@ -521,6 +521,9 @@ font: 10pt &quot;Bahnschrift SemiLight&quot;;
                      </property>
                      <property name="text">
                       <string/>
+                     </property>
+                     <property name="wordWrap">
+                      <bool>true</bool>
                      </property>
                     </widget>
                     <widget class="QLabel" name="label_6">
